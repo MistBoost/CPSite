@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DAL.Models.TravelCommand>
+@{
+    ViewData["Title"] = "Travel commands";
+}
+<h1 class="display-4">Travel Command</h1>
+<br />
+@Html.ActionLink("Create New", "Create")
+<table class="table table-hover">
+    <tr>
+        <th>
+            Date created
+        </th>
+        <th>
+            Participant
+        </th>
+        <th>
+            Start location
+        </th>
+        <th>
+            End location
+        </th>
+        <th>
+            Start time
+        </th>
+        <th>
+            End time
+        </th>
+        <th>
+            Transportation
+        </th>
+        <th>
+            Status
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Participant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transportation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
